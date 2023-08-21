@@ -9,6 +9,20 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "liba": [
+        "dist/liba"
+      ],
+      "libb": [
+        "dist/libb"
+      ],
+      "@myapp/projects/liba": [
+        "projects/liba/src/public_api.ts"
+      ],
+      "@myapp/projects/libb": [
+        "projects/libb/src/public_api.ts"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
