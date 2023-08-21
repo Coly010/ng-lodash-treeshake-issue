@@ -1,27 +1,20 @@
-# Myapp
+# Ng Lib Using Dynamic Import of Lib using Lodash not Tree Shaking Correctly
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
-## Development server
+## To Investigate
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Uncomment import in `projects/liba/src/lib/liba.module.ts`.
 
-## Code scaffolding
+2. Build the libs `ng build libb`, `ng build liba`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Build the app `ng build`.
 
-## Build
+Note the size of `main.js`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. Comment import in `projects/liba/src/lib/liba.module.ts`
 
-## Running unit tests
+5. Rebuild `ng build liba`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+6. Rebuild `ng build`
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Compare the size of `main.js` - it should be 30kb less.
